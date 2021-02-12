@@ -10,3 +10,7 @@
 [U课表](https://github.com/Wangs121/UPC_Schedule)
 
 [TableView](https://github.com/DevMeteor/TableView)
+
+#### Todo
+1.重构代码，规范命名。
+2.完善UI界面，增加分割线
