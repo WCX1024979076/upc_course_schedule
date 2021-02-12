@@ -7,6 +7,4 @@
 
 [课表ui](https://www.wanandroid.com/blog/show/2117)
 
-[Android 定时启动应用](https://blog.csdn.net/sparta128/article/details/84281313?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control)
-
 [U课表](https://github.com/Wangs121/UPC_Schedule)
