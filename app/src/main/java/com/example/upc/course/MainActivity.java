@@ -16,7 +16,12 @@ import android.widget.Toast;
 import com.example.upc.R;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.upc.login.LoginActivity;
+import com.example.upc.login.login_db;
 import com.example.upc.util.AsyncResponse;
+import com.example.upc.util.cookie;
+
 import static java.lang.Integer.max;
 import static java.lang.Math.min;
 
@@ -28,6 +33,7 @@ public class MainActivity extends AppCompatActivity
 {
     private TableView<CustomLesson> tableView;
     private course_db Course_DB=null;
+    private login_db Login_DB=null;
     public static Context context=null;
     ProgressBar loadingProgressBar=null;
     Button next=null,back=null;
@@ -41,7 +47,18 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_course);
         context=this;
         Course_DB = new course_db(this);
+        Login_DB= new login_db(this);
 
+        if(cookie.path_cookie==null)
+            cookie.path_cookie=this.getCacheDir()+"/cookie.txt";    ///获取缓存路径
+
+        if(!Login_DB.login_check())
+        {
+            Toast.makeText(getApplicationContext(), "请先登录！", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, com.example.upc.login.LoginActivity.class);
+            startActivity(intent);
+            return ;
+        }
         //Course_DB.course_upgrade(); /// 更新数据库
 
         loadingProgressBar = findViewById(R.id.loading_course);

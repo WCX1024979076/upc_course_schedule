@@ -18,8 +18,13 @@ import android.widget.Toast;
 import com.example.upc.R;
 import com.example.upc.course.course_db;
 import com.example.upc.course.course_spider;
+import com.example.upc.login.LoginActivity;
 import com.example.upc.login.login_db;
+import com.example.upc.login.login_spider;
 import com.example.upc.util.AsyncResponse;
+import com.example.upc.util.cookie;
+
+import static com.example.upc.login.LoginActivity.Login_db;
 
 
 public class SettingActivity extends AppCompatActivity
@@ -44,6 +49,10 @@ public class SettingActivity extends AppCompatActivity
         go_back= findViewById(R.id.go_back);
         context = this;
         activity=this;
+
+        if(cookie.path_cookie==null)
+            cookie.path_cookie=this.getCacheDir()+"/cookie.txt";    ///获取缓存路径
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,8 +85,30 @@ public class SettingActivity extends AppCompatActivity
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Log.e("更新按钮", "点击");
-                Log.e("爬取课表", "开始");
+                login_db Login_db=new login_db(SettingActivity.context);
+                Toast.makeText(getApplicationContext(), "开始登陆", Toast.LENGTH_SHORT).show();
+                loadingProgressBar.setVisibility(View.VISIBLE);
+                String[] login_data=Login_db.login_getData();
+                login_spider Login_Spider = new login_spider();
+                Login_Spider.execute(login_data);
+                Login_Spider.setOnAsyncResponse(new AsyncResponse() {
+                    @Override
+                    public void onDataReceivedSuccess(String msg)
+                    {
+                        loadingProgressBar.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getApplicationContext(), "登陆成功", Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void onDataReceivedFailed(String msg)
+                    {
+                        loadingProgressBar.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
+                        Log.e("登录爬虫", "登陆失败");
+                    }
+                });
+
                 Toast.makeText(getApplicationContext(), "开始爬取课程信息", Toast.LENGTH_SHORT).show();
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 course_spider Course_Spider = new course_spider();
@@ -98,6 +129,7 @@ public class SettingActivity extends AppCompatActivity
                         Log.e("课表爬虫", "爬取失败"+msg);
                     }
                 });
+
             }
         });
     }

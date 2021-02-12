@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class cookie
 {
-    public static String path_cookie= LoginActivity.path_catch+"/cookie.txt";
+    public static String path_cookie=null;
     public static void Writecookies(Map cookies)
     {
         try

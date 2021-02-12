@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity
     Button loginButton=null;
     ProgressBar loadingProgressBar=null;
 
-    public static File path_catch=null;
     public static login_db Login_db=null;
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -29,7 +28,10 @@ public class LoginActivity extends AppCompatActivity
         setContentView(R.layout.activity_login);
 
         Login_db=new login_db(com.example.upc.login.LoginActivity.this);
-        path_catch=this.getCacheDir();    ///获取缓存路径
+
+        if(cookie.path_cookie==null)
+            cookie.path_cookie=this.getCacheDir()+"/cookie.txt";    ///获取缓存路径
+
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         loginButton = findViewById(R.id.login);
