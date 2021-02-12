@@ -62,7 +62,7 @@ public class course_util {
         catch (ParseException e) {
             e.printStackTrace();
             Log.e("周次判断",e.toString());
-            return -1;
+            return 1;
         }
     }
 
