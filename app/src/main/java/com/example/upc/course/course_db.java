@@ -71,6 +71,18 @@ public class course_db extends SQLiteOpenHelper
         }
     }
 
+    public String[] course_getData_week()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT week,weekdays,day FROM "+TABLE_NAME,null);
+        String week_data[]=new String[3];
+        cursor.moveToNext();
+        week_data[0]=cursor.getString(0);
+        week_data[1]=cursor.getString(1);
+        week_data[2]=cursor.getString(2);
+        return week_data;
+    }
+
     public List<CustomLesson> course_getData(int week)
     {
         SQLiteDatabase db = this.getReadableDatabase();

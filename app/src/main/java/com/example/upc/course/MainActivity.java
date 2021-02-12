@@ -16,12 +16,9 @@ import android.widget.Toast;
 import com.example.upc.R;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.upc.login.LoginActivity;
 import com.example.upc.login.login_db;
 import com.example.upc.util.AsyncResponse;
 import com.example.upc.util.cookie;
-
 import static java.lang.Integer.max;
 import static java.lang.Math.min;
 
@@ -66,6 +63,10 @@ public class MainActivity extends AppCompatActivity
         back = findViewById(R.id.back);
         imageview=findViewById(R.id.setting);
         page_num= findViewById(R.id.page);
+
+        String[] week_data=Course_DB.course_getData_week();
+        page=(int)course_util.getWeek(week_data);
+
         page_num.setText("第"+String.valueOf(page)+"周");
         next.setOnClickListener(new View.OnClickListener()
         {
