@@ -6,8 +6,6 @@ https://wcx1024979076.github.io/2021/02/12/%E5%AE%89%E5%8D%93%E8%AF%BE%E8%A1%A8%
 
 ## 效果图
 
-## 详细注解：
-
 ![](https://raw.githubusercontent.com/WCX1024979076/image1/master/img/20210212225948.jpg)
 
 ![](https://raw.githubusercontent.com/WCX1024979076/image1/master/img/20210212225900.jpg)
