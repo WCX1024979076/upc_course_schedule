@@ -63,10 +63,16 @@ public class MainActivity extends AppCompatActivity
         back = findViewById(R.id.back);
         imageview=findViewById(R.id.setting);
         page_num= findViewById(R.id.page);
-
-        String[] week_data=Course_DB.course_getData_week();
-        page=(int)course_util.getWeek(week_data);
-
+        try
+        {
+            String[] week_data=Course_DB.course_getData_week();
+            page=(int)course_util.getWeek(week_data);
+        }
+        catch(Exception a)
+        {
+            Log.e("查不到数据","设置page为1");
+            page=1;
+        }
         page_num.setText("第"+String.valueOf(page)+"周");
         next.setOnClickListener(new View.OnClickListener()
         {
@@ -135,6 +141,16 @@ public class MainActivity extends AppCompatActivity
                             showDialog(msg);
                         }
                     });
+                    try
+                    {
+                        String[] week_data=Course_DB.course_getData_week();
+                        page=(int)course_util.getWeek(week_data);
+                    }
+                    catch(Exception a)
+                    {
+                        Log.e("查不到数据","设置page为1");
+                        page=1;
+                    }
                 }
                 @Override
                 public void onDataReceivedFailed(String msg)
