@@ -21,6 +21,7 @@ public class course_util {
         sdf = new SimpleDateFormat("MM");
         int month = Integer.parseInt(sdf.format(now));
         //八月前为上一学年
+        Log.e("年份判断",String.valueOf(year)+"-"+String.valueOf(month));
         if (month <= 8) {
             return (year - 1) + "-" + year;
         } else {
@@ -34,10 +35,11 @@ public class course_util {
         Calendar cal = Calendar.getInstance();
         int month = cal.get(Calendar.MONTH )+1;
         int term;
-        if (month>=2 && month<=9)
+        if (month>=2 && month<=8)
             term = 2;
         else
             term = 1;
+        Log.e("学期判断",String.valueOf(term));
         return String.valueOf(term);
     }
 
