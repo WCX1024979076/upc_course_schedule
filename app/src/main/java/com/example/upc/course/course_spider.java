@@ -17,6 +17,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.upc.util.AsyncResponse;
 import com.example.upc.util.cookie;
 
+import static java.sql.Types.NULL;
+
 public class course_spider extends AsyncTask<Void, Void, String>
 {
     private Map<Double,Boolean> color_use =null;
@@ -53,20 +55,21 @@ public class course_spider extends AsyncTask<Void, Void, String>
                 com.alibaba.fastjson.JSONObject ans = (com.alibaba.fastjson.JSONObject) jsonObject.get("d");
 
                 JSONArray weekday=(JSONArray) ans.get("weekdays");
+
                 String[] week_array=new String[8];
                 int week_sum=0;
                 for (Iterator iterator = weekday.iterator(); iterator.hasNext();) {
+
                     String job = iterator.next().toString();
-                    System.out.println(job);
                     week_array[week_sum++]=job;
                 }
 
                 String ans1 = ans.get("classes").toString();
                 JSONArray jarr = JSONArray.parseArray(ans1);
+
                 for (Iterator iterator = jarr.iterator(); iterator.hasNext(); ) {
                     JSONObject job = (JSONObject) iterator.next();
                     String lesson=job.get("lessons").toString();
-
 
                     int start_time = Integer.parseInt(lesson.substring(0, 2));
                     int end_time = Integer.parseInt(lesson.substring(lesson.length()-2, lesson.length()));
@@ -79,7 +82,16 @@ public class course_spider extends AsyncTask<Void, Void, String>
                         color = createRandomColor();
                         bgMap.put(job.get("course_id").toString(),color);
                     }
-                    Course_DB.course_insert(job.get("course_id").toString(), week, Integer.parseInt(job.get("weekday").toString()), start_time, end_time, job.get("course_name").toString(), job.get("location").toString(),color,job.get("course_time").toString(),week_array[Integer.parseInt((String) job.get("weekday"))]);
+
+                    String location="";
+                    try{
+                        location= job.get("location").toString();
+                    }
+                    catch (Exception a)
+                    {
+                        location="";
+                    }
+                    Course_DB.course_insert(job.get("course_id").toString(), week, Integer.parseInt(job.get("weekday").toString()), start_time, end_time, job.get("course_name").toString(),location,color,job.get("course_time").toString(),week_array[Integer.parseInt(job.get("weekday").toString())]);
                 }
             }
             return "操作成功";
