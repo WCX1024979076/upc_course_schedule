@@ -2,7 +2,7 @@
 # 中国石油大学课程表安卓客户端代码
 ## 详细注解：
 
-https://wcx1024979076.github.io/2021/02/12/%E5%AE%89%E5%8D%93%E8%AF%BE%E8%A1%A8%E5%AE%A2%E6%88%B7%E7%AB%AF+%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B3%A8%E8%A7%A3/
+https://wcx1024979076.github.io/blog/2021/02/12/%E5%AE%89%E5%8D%93%E8%AF%BE%E8%A1%A8%E5%AE%A2%E6%88%B7%E7%AB%AF+%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B3%A8%E8%A7%A3/
 
 ## 效果图
 
