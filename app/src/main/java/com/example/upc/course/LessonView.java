@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,13 @@ public class LessonView<T extends Lesson> extends FrameLayout {
     private LinearLayout content;
     private TextView name;
     private TextView place;
+    private int height_per_lesson;
 
+    public void setHeight_per_lesson(int _height_per_lesson)
+    {
+        height_per_lesson=_height_per_lesson;
+//        Log.e("高度2",String.valueOf(height_per_lesson));
+    }
     public LessonView(Context context) {
         this(context, null);
     }
@@ -61,8 +68,9 @@ public class LessonView<T extends Lesson> extends FrameLayout {
         });
         name.setText(lesson.getName());
         place.setText("@" + lesson.getPlace());
-        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (getContext().getResources().getDimension(R.dimen.height_per_lesson) * (lesson.getEnd() - lesson.getStart() + 1)));
-        layoutParams.topMargin = (int) ((lesson.getStart() - 1) * (getContext().getResources().getDimension(R.dimen.height_per_lesson)));
+//        Log.e("高度1",String.valueOf(height_per_lesson));
+        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) height_per_lesson * (lesson.getEnd() - lesson.getStart() + 1));
+        layoutParams.topMargin = (int) ((lesson.getStart() - 1) * height_per_lesson);
         setLayoutParams(layoutParams);
     }
 

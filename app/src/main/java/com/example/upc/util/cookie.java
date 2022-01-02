@@ -1,6 +1,5 @@
 package com.example.upc.util;
 
-import com.example.upc.login.LoginActivity;
 import android.util.Log;
 import java.io.File;
 import java.io.FileInputStream;

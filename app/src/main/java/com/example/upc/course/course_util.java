@@ -7,9 +7,10 @@ import androidx.annotation.RequiresApi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class course_util {
 
@@ -68,4 +69,20 @@ public class course_util {
         }
     }
 
+    public static List<Date> GetWeekDays() {
+        int page=MainActivity.page;
+        int page_start=MainActivity.page_start;
+        Date mdate = new Date();
+        int b = mdate.getDay();
+        Date fdate;
+        List<Date> list = new ArrayList<Date>();
+        Long Hour = Long.valueOf(24) * Long.valueOf(3600000);
+        Long fTime = mdate.getTime() - Long.valueOf(b) * Hour + Long.valueOf(page-page_start) * Long.valueOf(7) * Hour;
+        for (int a = 0; a <= 6; a++) {
+            fdate = new Date();
+            fdate.setTime(fTime + (Long.valueOf(a) * Hour));
+            list.add(a, fdate);
+        }
+        return list;
+    }
 }

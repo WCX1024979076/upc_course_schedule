@@ -2,7 +2,6 @@ package com.example.upc.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import java.io.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -74,6 +73,8 @@ public class LoginActivity extends AppCompatActivity
                     Log.e("登陆爬虫", "跳转界面");
                     Intent intent = new Intent(LoginActivity.this, com.example.upc.course.MainActivity.class);
                     startActivity(intent);
+                    finish();
+                    return ;
                 }
                 @Override
                 public void onDataReceivedFailed(String msg)

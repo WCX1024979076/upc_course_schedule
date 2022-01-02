@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <ScrollView
+        android:id="@+id/scrollview"
         android:overScrollMode="never"
         android:scrollbars="none"
         android:layout_width="match_parent"
@@ -24,62 +25,76 @@
                 android:layout_width="20dp"
                 android:layout_height="match_parent" />
 
-
             <RelativeLayout
-                android:id="@+id/item_table_view_mon"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:paddingStart="1dp"
-                android:paddingEnd="1dp"
-                android:layout_weight="1" />
-
-            <RelativeLayout
-                android:id="@+id/item_table_view_tue"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingStart="1dp"
-                android:paddingEnd="1dp" />
-
-            <RelativeLayout
-                android:id="@+id/item_table_view_wed"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:paddingStart="1dp"
-                android:paddingEnd="1dp"
-                android:layout_weight="1" />
-
-            <RelativeLayout
-                android:id="@+id/item_table_view_thu"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:paddingStart="1dp"
-                android:paddingEnd="1dp"
-                android:layout_weight="1" />
-
-            <RelativeLayout
-                android:id="@+id/item_table_view_fri"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:paddingStart="1dp"
-                android:paddingEnd="1dp"
-                android:layout_weight="1" />
-
-            <RelativeLayout
-                android:id="@+id/item_table_view_sat"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:paddingStart="1dp"
-                android:paddingEnd="1dp"
-                android:layout_weight="1" />
-
-            <RelativeLayout
+                android:background="#DCDCDC"
                 android:id="@+id/item_table_view_sun"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:paddingStart="1dp"
                 android:paddingEnd="1dp"
+                android:layout_marginStart="1dip"
                 android:layout_weight="1" />
+
+            <RelativeLayout
+                android:background="#DCDCDC"
+                android:id="@+id/item_table_view_mon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp"
+                android:layout_marginStart="1dip"
+                android:layout_weight="1" />
+
+            <RelativeLayout
+                android:background="#DCDCDC"
+                android:id="@+id/item_table_view_tue"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingStart="1dp"
+                android:layout_marginStart="1dip"
+                android:paddingEnd="1dp" />
+
+            <RelativeLayout
+                android:background="#DCDCDC"
+                android:id="@+id/item_table_view_wed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp"
+                android:layout_marginStart="1dip"
+                android:layout_weight="1" />
+
+            <RelativeLayout
+                android:background="#DCDCDC"
+                android:id="@+id/item_table_view_thu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp"
+                android:layout_marginStart="1dip"
+                android:layout_weight="1" />
+
+            <RelativeLayout
+                android:background="#DCDCDC"
+                android:id="@+id/item_table_view_fri"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp"
+                android:layout_marginStart="1dip"
+                android:layout_weight="1" />
+
+            <RelativeLayout
+                android:background="#DCDCDC"
+                android:id="@+id/item_table_view_sat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp"
+                android:layout_marginStart="1dip"
+                android:layout_weight="1" />
+
 
         </LinearLayout>
 

@@ -64,6 +64,7 @@ public class SettingActivity extends AppCompatActivity
                 Course_db.course_clear();
                 Intent intent = new Intent(SettingActivity.context, com.example.upc.login.LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         go_back.setOnClickListener(new View.OnClickListener() {

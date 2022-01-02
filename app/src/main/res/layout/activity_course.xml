@@ -13,15 +13,15 @@
         android:background="#50e7ab"
         android:padding="10dp">
 
-        <Button
+        <ImageView
             android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="60dp"
-            android:text="上一周"
+            android:layout_marginTop="5dp"
             android:textColor="#ffffff"
-
             android:textSize="17sp" />
 
         <TextView
@@ -29,18 +29,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:text="首页"
-            android:textSize="17sp"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textSize="17sp" />
 
-        <Button
+        <ImageView
             android:id="@+id/next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/next"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="60dp"
-            android:text="下一周"
+            android:layout_marginTop="5dp"
             android:textColor="#ffffff"
             android:textSize="17sp" />
 
