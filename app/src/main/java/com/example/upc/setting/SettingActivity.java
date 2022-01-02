@@ -73,6 +73,7 @@ public class SettingActivity extends AppCompatActivity
                 Log.e("返回按钮", "点击");
                 Intent intent = new Intent(SettingActivity.context, com.example.upc.course.MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         remaind.setOnClickListener(new View.OnClickListener() {
